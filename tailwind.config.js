@@ -12,6 +12,9 @@ module.exports = {
         foreground: "var(--foreground)",
       },
     },
+    fontFamily: {
+      harry: ["Harry", "sans-serif"]
+    }
   },
   plugins: [],
 };
