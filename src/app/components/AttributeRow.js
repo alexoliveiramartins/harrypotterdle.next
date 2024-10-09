@@ -33,6 +33,7 @@ export default function AttributeRow( {character, correctAnswer, setPlaying} ){
         matchName,
         matchPatronus,
         matchSpecies,
+        setPlaying
     ]);
 
     const getBornImage = () => {

@@ -16,7 +16,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
             !savedGuessNames.includes(character.name)
         );
         setCharacters(remainingCharacters);
-    }, [])
+    }, [characters])
 
     useEffect(() => {
         const filtered = characters.filter(character =>
