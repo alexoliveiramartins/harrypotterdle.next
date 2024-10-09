@@ -34,6 +34,7 @@ export default function AttributeRow( {character, correctAnswer, setPlaying} ){
         matchPatronus,
         matchSpecies,
     ]);
+
     const getBornImage = () => {
         if(matchBorn) return "";
         const bornYear = parseInt(character.born);
@@ -42,6 +43,24 @@ export default function AttributeRow( {character, correctAnswer, setPlaying} ){
         return bornYear > correctYear ? "svg/down-arrow.svg" : "svg/up-arrow.svg";
     }
 
+    const getHouseImage = () => {
+        if(character.house === "Gryffindor") return 'images/houses/Gryffindor.webp';
+        if(character.house === "Slytherin") return 'images/houses/Slytherin.webp';
+        if(character.house === "Ravenclaw") return 'images/houses/Ravenclaw.webp';
+        if(character.house === "Hufflepuff") return 'images/houses/Hufflepuff.webp';
+    }
+
+    const getBookImage = () => {
+        if(character.first_appearance === "Philosopher's Stone") return 'images/books/1.webp';
+        if(character.first_appearance === "Chamber of Secrets") return 'images/books/2.webp';
+        if(character.first_appearance === "Prisoner of Azkaban") return 'images/books/3.webp';
+        if(character.first_appearance === "Goblet of Fire") return 'images/books/4.webp';
+        if(character.first_appearance === "Order of the Phoenix") return 'images/books/5.webp';
+        if(character.first_appearance === "Half-Blood Prince") return 'images/books/6.webp';
+        if(character.first_appearance === "Deathly Hallows") return 'images/books/7.webp';
+        if(character.first_appearance === "Fantastic Beasts") return 'images/books/FB.webp';
+    }
+    
     return(
         <div className="px-2 grid grid-cols-9 gap-4 w-full justify-evenly min-w-max">
             <Attribute name={character.name} character={true} image={character.image} correct={matchName} bgSize={"bg-cover"}/>
@@ -49,10 +68,10 @@ export default function AttributeRow( {character, correctAnswer, setPlaying} ){
             <Attribute name={character.boggart} correct={matchBoggart}/>
             <Attribute name={character.blood} correct={matchBlood}/>
             <Attribute name={character.born} correct={matchBorn} image={getBornImage()}/>
-            <Attribute name={character.house} correct={matchHouse}/>
+            <Attribute name={character.house} correct={matchHouse} image={getHouseImage()}/>
             <Attribute name={character.species} correct={matchSpecies}/>
             <Attribute name={character.patronus} correct={matchPatronus}/>
-            <Attribute name={character.first_appearance} correct={matchAppearance}/>
+            <Attribute name={character.first_appearance} correct={matchAppearance} opacity={"opacity-60"} image={getBookImage()} />
         </div>
     );
 }

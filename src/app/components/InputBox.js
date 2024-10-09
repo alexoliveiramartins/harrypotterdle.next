@@ -5,8 +5,18 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
     const [inputValue, setInputValue] = useState('');
     const [filteredNames, setFilteredNames] = useState([]);
     const [characters, setCharacters] = useState(characterData);
+    const [selectedIndex, setSelectedIndex] = useState(null);
 
     console.log("correct answer on inputbox: ", correctAnswer);
+
+    useEffect(() => {
+        const savedGuessNames = JSON.parse(localStorage.getItem('guesses') || '[]');
+    
+        const remainingCharacters = characters.filter(character => 
+            !savedGuessNames.includes(character.name)
+        );
+        setCharacters(remainingCharacters);
+    }, [])
 
     useEffect(() => {
         const filtered = characters.filter(character =>
@@ -15,6 +25,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
         )
         setFilteredNames(filtered);
         // console.log(filteredNames);
+        setSelectedIndex(0);
     }, [inputValue, characters]);
 
     useEffect(() => {
@@ -38,33 +49,58 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
         // console.log("guesses: ", guessesState);
     }
 
+    const handleEnter = (e) => {
+        if (e.key === 'Enter' && filteredNames.length > 0) {
+            handleClick(filteredNames[selectedIndex].name);
+        } else if (e.key === 'ArrowDown') {
+            setSelectedIndex(prevIndex => 
+                prevIndex < filteredNames.length - 1 ? prevIndex + 1 : prevIndex
+            );
+        } else if (e.key === 'ArrowUp') {
+            setSelectedIndex(prevIndex => prevIndex > 0 ? prevIndex - 1 : 0);
+        }
+    }
+
     return (
-        <div className="w-full">
-            <div className="relative">
-                <input 
-                    className="w-full text-sm p-3 rounded border border-neutral-500"
-                    type="text"
-                    placeholder="Character name, alias"
-                    value={inputValue}
-                    onChange={handleInputChange}
-                />
-                {inputValue.length > 0 && 
-                    <ul className="overflow-y-scroll max-h-screen left-0 right-0 bg-slate-200 z-20 absolute">
-                        {filteredNames.map((character, index) => (
-                            <li 
-                                onClick={() => handleClick(character.name)}
-                                key={index}
-                                className="p-2 flex flex-row items-center space-x-2 hover:bg-slate-300 cursor-pointer"
-                            >
-                                <img src={character.image} className=" rounded-md w-11 h-11" alt={character.name}></img>
-                                <div className="space-x-2">
-                                    <span className="text-sm">{character.name}</span>
-                                    {character.alias != "" && <span className="text-xs opacity-45">{`aka.: ${character.alias}`}</span>}
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                }
+        <div className="w-2/3 rounded-md bg-gray-800 p-3">
+            <div className="relative flex flex-row space-x-2">
+                <div className="w-full">
+                    <input 
+                        className="w-full text-sm p-3 rounded border border-neutral-500"
+                        type="text"
+                        placeholder="Character name, alias"
+                        value={inputValue}
+                        onChange={handleInputChange}
+                        onKeyDown={handleEnter}
+                    />
+                    {inputValue.length > 0 && 
+                        <ul className="overflow-y-scroll max-h-screen left-0 right-0 bg-slate-200 z-20 absolute">
+                            {filteredNames.map((character, index) => (
+                                <li 
+                                    onClick={() => handleClick(character.name)}
+                                    key={`${character.id}-${index}`}
+                                    className={`${index === selectedIndex ? 'bg-slate-300' : 'hover:bg-slate-100'} p-2 flex flex-row items-center space-x-2 cursor-pointer`}
+                                    onMouseEnter={() => setSelectedIndex(index)}
+                                >
+                                    <img src={character.image} className=" rounded-md w-11 h-11" alt={character.name}></img>
+                                    <div className="space-x-2">
+                                        <span className="text-sm">{character.name}</span>
+                                        {character.alias != "" && <span className="text-xs opacity-45">{`aka.: ${character.alias}`}</span>}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    }
+                </div>
+                <button
+                onClick={() => {
+                    if (inputValue !== '' && filteredNames.length > 0) {
+                        handleClick(filteredNames[selectedIndex].name);
+                    }
+                }}
+                style={{ backgroundImage: `url('/svg/broom.svg')` }}
+                className="border-2 border-zinc-400 flex justify-center items-center w-16 bg-white bg-contain bg-no-repeat bg-center rounded">
+                </button>
             </div>
         </div>
     );

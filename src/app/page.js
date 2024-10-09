@@ -6,14 +6,16 @@ import Attribute from "./components/Attribute";
 import AttributeRow from "./components/AttributeRow";
 import react from "react";
 import characterData from "./assets/characterData";
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import AttributeTitles from "./components/AttributeTitles";
+import Answer from "./components/answer";
 
 export default function Home() {
   const [guesses, setGuesses] = useState([]);
   const [date, setDate] = useState(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [correctAnswer, setCorrectAnswer] = useState(null);
+  const [characters, setCharacters] = useState(characterData);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -32,11 +34,36 @@ export default function Home() {
       const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
       const randomIndex = seed % characterData.length;
       setCorrectAnswer(characterData[randomIndex]);
+       
+      if(localStorage.getItem('guesses') === null){
+        localStorage.setItem('guesses', '')
+      }
+      else{
+        const savedGuessesLocal = JSON.parse(localStorage.getItem('guesses') || '[]');
+        const savedGuesses = savedGuessesLocal.map(name => 
+          characters.find(character => character.name === name)
+        ).filter(Boolean);
+        
+        setGuesses(savedGuesses);
+
+        const remainingCharacters = characters.filter(character => 
+          !savedGuessesLocal.includes(character.name)
+        );
+        setCharacters(remainingCharacters);
+      }
+
     }
+    
   }, []);
 
   useEffect(() => {
-    console.log("guesses: ", guesses);
+    if (typeof window !== "undefined"){
+      if(guesses.length > 0){
+        const guessesNames = guesses.map(guess => guess.name)
+        localStorage.setItem('guesses', JSON.stringify(guessesNames));
+        console.log(guessesNames);
+      }
+    }
   }, [guesses])
 
   console.log(correctAnswer);
@@ -47,16 +74,7 @@ export default function Home() {
         <h1 className="font-harry text-white text-6xl">HarryPotter.dle</h1>
         
         {/* winning card */}
-        {!isPlaying &&
-          <div className="flex flex-col space-y-3 items-center p-5 w-sm bg-opacity-50 bg-slate-400 rounded">
-            <div>
-              <span>You Won! Today's character was </span><span className="font-medium">{correctAnswer.name}</span>
-            </div>
-            <div className="items-center size-fit flex overflow-hidden rounded">
-              <img className="rounded-lg aspect-square object-cover object-top" src={correctAnswer.image}/>
-            </div>
-          </div>
-        }
+        {!isPlaying && <Answer correctAnswer={correctAnswer}/>}
 
         {isPlaying && correctAnswer && <InputBox correctAnswer={correctAnswer} setIsPlaying={setIsPlaying} guessesState={guesses} setGuesses={setGuesses} className="px-4"/>}
         <div className="flex flex-col w-full">
