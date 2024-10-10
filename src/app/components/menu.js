@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 
-export default function(){
+export default function Menu(){
     return(
         <div className="rounded
         max-w-96 w-full h-1/2 p-5

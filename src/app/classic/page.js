@@ -1,11 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import Image from "next/image";
 import InputBox from "../components/InputBox";
-import Attribute from "../components/Attribute";
 import AttributeRow from "../components/AttributeRow";
-import react from "react";
 import characterData from "../assets/characterData";
 import { useEffect, useState } from 'react';
 import AttributeTitles from "../components/AttributeTitles";
@@ -21,41 +18,40 @@ export default function Classic(){
 
     useEffect(() => {
     if (typeof window !== "undefined") {
-        const storedDate = localStorage.getItem('date');
-        const today = new Date();
-        today.setDate(today.getDate());
-        const todayString = today.getDate().toString();
-        
-        if (storedDate !== todayString) {
-        localStorage.removeItem('guesses');
-        localStorage.setItem('date', todayString);
-        setDate(todayString);
-        } else {
-        setDate(storedDate);
-        }
-        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-        const randomIndex = seed % characterData.length;
-        setCorrectAnswer(characterData[randomIndex]);
-        
-        if(localStorage.getItem('guesses') === null){
-        localStorage.setItem('guesses', '')
-        }
-        else{
-        const savedGuessesLocal = JSON.parse(localStorage.getItem('guesses') || '[]');
-        const savedGuesses = savedGuessesLocal.map(name => 
-            characters.find(character => character.name === name)
-        ).filter(Boolean);
-        
-        setGuesses(savedGuesses);
+            const storedDate = localStorage.getItem('date');
+            const today = new Date();
+            today.setDate(today.getDate());
+            const todayString = today.getDate().toString();
+            
+            if (storedDate !== todayString) {
+            localStorage.removeItem('guesses');
+            localStorage.setItem('date', todayString);
+            setDate(todayString);
+            } else {
+            setDate(storedDate);
+            }
+            const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+            const randomIndex = seed % characterData.length;
+            setCorrectAnswer(characterData[randomIndex]);
+            
+            if(localStorage.getItem('guesses') === null){
+            localStorage.setItem('guesses', '')
+            }
+            else{
+            const savedGuessesLocal = JSON.parse(localStorage.getItem('guesses') || '[]');
+            const savedGuesses = savedGuessesLocal.map(name => 
+                characters.find(character => character.name === name)
+            ).filter(Boolean);
+            
+            setGuesses(savedGuesses);
 
-        const remainingCharacters = characters.filter(character => 
-            !savedGuessesLocal.includes(character.name)
-        );
-        setCharacters(remainingCharacters);
+            const remainingCharacters = characters.filter(character => 
+                !savedGuessesLocal.includes(character.name)
+            );
+            setCharacters(remainingCharacters);
         }
-
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {

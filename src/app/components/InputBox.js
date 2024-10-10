@@ -17,6 +17,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
             !savedGuessNames.includes(character.name)
         );
         setCharacters(remainingCharacters);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -83,7 +84,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
                                     className={`${index === selectedIndex ? 'bg-slate-300' : 'hover:bg-slate-100'} p-2 flex flex-row items-center space-x-2 cursor-pointer`}
                                     onMouseEnter={() => setSelectedIndex(index)}
                                 >
-                                    <img src={character.image} className=" rounded-md w-11 h-11" alt={character.name}></img>
+                                    <Image src={character.image} className=" rounded-md w-11 h-11" alt={character.name}></Image>
                                     <div className="space-x-2">
                                         <span className="text-sm">{character.name}</span>
                                         {character.alias != "" && <span className="text-xs opacity-45">{`aka.: ${character.alias}`}</span>}
