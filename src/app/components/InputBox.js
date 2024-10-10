@@ -62,11 +62,11 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
     }
 
     return (
-        <div className="w-2/3 rounded-md bg-gray-800 p-3">
-            <div className="relative flex flex-row space-x-2">
+        <div className="w-full max-w-96 rounded-md bg-gray-800 p-3">
+            <div className="relative flex flex-row space-x-2 items-center">
                 <div className="w-full">
                     <input 
-                        className="w-full text-sm p-3 rounded border border-neutral-500"
+                        className="bg-gray-600 w-full text-sm p-3 rounded border border-neutral-500"
                         type="text"
                         placeholder="Character name, alias"
                         value={inputValue}
@@ -74,7 +74,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
                         onKeyDown={handleEnter}
                     />
                     {inputValue.length > 0 && 
-                        <ul className="overflow-y-scroll max-h-screen left-0 right-0 bg-slate-200 z-20 absolute">
+                        <ul className="font-light overflow-y-scroll max-h-screen left-0 right-0 bg-slate-200 z-20 absolute">
                             {filteredNames.map((character, index) => (
                                 <li 
                                     onClick={() => handleClick(character.name)}
@@ -92,15 +92,14 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
                         </ul>
                     }
                 </div>
-                <button
+                <img 
+                src="svg/send.svg"
+                className="w-8 h-8 hover:cursor-pointer"
                 onClick={() => {
                     if (inputValue !== '' && filteredNames.length > 0) {
                         handleClick(filteredNames[selectedIndex].name);
-                    }
-                }}
-                style={{ backgroundImage: `url('/svg/broom.svg')` }}
-                className="border-2 border-zinc-400 flex justify-center items-center w-16 bg-white bg-contain bg-no-repeat bg-center rounded">
-                </button>
+                }
+                }} />
             </div>
         </div>
     );

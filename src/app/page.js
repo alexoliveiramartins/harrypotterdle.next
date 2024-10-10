@@ -9,6 +9,7 @@ import characterData from "./assets/characterData";
 import { useEffect, useState } from 'react';
 import AttributeTitles from "./components/AttributeTitles";
 import Answer from "./components/answer";
+import HowToPlay from "./components/HowToPlay";
 
 export default function Home() {
   const [guesses, setGuesses] = useState([]);
@@ -69,12 +70,13 @@ export default function Home() {
   console.log(correctAnswer);
 
   return (
-    <div className="w-screen h-screen bg-cover overflow-y-auto" style={{ backgroundImage: `url(${'images/Wallpaper.webp'})` }}>
-      <div className="flex flex-col mx-auto items-center py-11 space-y-8 max-w-4xl px-4">
-        <h1 className="font-harry text-white text-6xl">HarryPotter.dle</h1>
+    <div className="w-screen h-screen bg-cover overflow-y-auto py-9" style={{ backgroundImage: `url(${'images/Wallpaper.webp'})` }}>
+      <div className="flex flex-col mx-auto items-center space-y-4 max-w-4xl px-4">
+        <h1 className="font-harry text-white text-7xl">HarryPotter.dle</h1>
         
         {/* winning card */}
         {!isPlaying && <Answer correctAnswer={correctAnswer}/>}
+        {isPlaying && <HowToPlay></HowToPlay>}
 
         {isPlaying && correctAnswer && <InputBox correctAnswer={correctAnswer} setIsPlaying={setIsPlaying} guessesState={guesses} setGuesses={setGuesses} className="px-4"/>}
         <div className="flex flex-col w-full">
@@ -89,8 +91,18 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+      </div>
+      <div 
+      className="py-8 opacity-75 min-w-max flex font-light flex-row items-center space-x-1 justify-center text-gray-50">
+        <footer>made by
+        </footer>
+        <a 
+          href="https://github.com/alexoliveiramartins" 
+          className="font-semibold decoration-dotted underline">
+            alex
+          </a>
       </div>
     </div>
+
   );
 }
