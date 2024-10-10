@@ -13,7 +13,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      harry: ["Harry", "sans-serif"]
+      harry: ["Harry", "sans-serif"],
+      lora: ["Lora", "serif"]
     }
   },
   plugins: [],

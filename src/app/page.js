@@ -71,14 +71,15 @@ export default function Home() {
 
   return (
     <div className="w-screen h-screen bg-cover overflow-y-auto py-9" style={{ backgroundImage: `url(${'images/Wallpaper.webp'})` }}>
-      <div className="flex flex-col mx-auto items-center space-y-4 max-w-4xl px-4">
-        <h1 className="font-harry text-white text-7xl">HarryPotter.dle</h1>
+      <div className="flex flex-col mx-auto items-center space-y-7 max-w-4xl px-4">
+        <h1 className="transform transition-transform duration-500 hover:cursor-pointer hover:scale-110 font-harry text-white text-7xl">HarryPotter.dle</h1>
         
         {/* winning card */}
         {!isPlaying && <Answer correctAnswer={correctAnswer}/>}
-        {isPlaying && <HowToPlay></HowToPlay>}
-
-        {isPlaying && correctAnswer && <InputBox correctAnswer={correctAnswer} setIsPlaying={setIsPlaying} guessesState={guesses} setGuesses={setGuesses} className="px-4"/>}
+        <div className="w-full items-center flex flex-col space-y-3">
+          {isPlaying && <HowToPlay></HowToPlay>}
+          {isPlaying && correctAnswer && <InputBox correctAnswer={correctAnswer} setIsPlaying={setIsPlaying} guessesState={guesses} setGuesses={setGuesses} className="px-4"/>}
+        </div>
         <div className="flex flex-col w-full">
           <div className="overflow-x-auto w-full flex"> 
             <div className="inline-block space-y-6">

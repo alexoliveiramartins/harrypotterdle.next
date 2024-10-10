@@ -1,6 +1,6 @@
 export default function Attribute({ name, correct, image, bgSize, opacity, character}) {
     return (
-        <div className="hover:opacity-100 bg-opacity-90 w-20 h-20 shadow-md flex-shrink-0 rounded-lg overflow-hidden text-balance">
+        <div className="font-lora font-light hover:opacity-100 bg-opacity-90 w-20 h-20 shadow-md flex-shrink-0 rounded-lg overflow-hidden text-balance">
             <a className={`
                 ${correct ? "bg-green-600" : "bg-red-600"} 
                 ${character ? `hover:text-opacity-100 text-opacity-0` : ''} h-20 w-10p-10 flex justify-center items-center rounded-lg text-white 

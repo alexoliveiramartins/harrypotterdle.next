@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import characterData from '../assets/characterData.json';
+import Image from "next/image";
 
 export default function InputBox({ correctAnswer, guessesState, setGuesses, setIsPlaying }){
     const [inputValue, setInputValue] = useState('');
@@ -62,7 +63,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
     }
 
     return (
-        <div className="w-full max-w-96 rounded-md bg-gray-800 p-3">
+        <div className="font-lora w-full max-w-96 rounded-md bg-gray-800 p-3">
             <div className="relative flex flex-row space-x-2 items-center">
                 <div className="w-full">
                     <input 
@@ -92,7 +93,9 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
                         </ul>
                     }
                 </div>
-                <img 
+                <Image 
+                width={32}
+                height={32}
                 src="svg/send.svg"
                 className="w-8 h-8 hover:cursor-pointer"
                 onClick={() => {
