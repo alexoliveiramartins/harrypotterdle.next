@@ -8,7 +8,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
     const [characters, setCharacters] = useState(characterData);
     const [selectedIndex, setSelectedIndex] = useState(null);
 
-    console.log("correct answer on inputbox: ", correctAnswer);
+    // console.log("correct answer on inputbox: ", correctAnswer);
 
     useEffect(() => {
         const savedGuessNames = JSON.parse(localStorage.getItem('guesses') || '[]');
@@ -17,7 +17,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
             !savedGuessNames.includes(character.name)
         );
         setCharacters(remainingCharacters);
-    }, [characters])
+    }, [])
 
     useEffect(() => {
         const filtered = characters.filter(character =>

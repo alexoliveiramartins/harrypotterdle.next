@@ -817,5 +817,18 @@
         "patronus": "Unknown",
         "species": "Human",
         "first_appearance": "Fantastic Beasts"
+    },
+    {
+        "name": "Sir Nicholas de Mimsy-Porpington",
+        "image": "https://static.wikia.nocookie.net/harrypotter/images/6/6d/Nicholas_de_Mimsy-Porpington.png/revision/latest?cb=20200515191831",
+        "gender": "Male",
+        "born": "1401",
+        "alias": "Nearly Headless Nick",
+        "blood": "Unknown",
+        "boggart": "Unknown",
+        "house": "Gryffindor",
+        "patronus": "Unknown",
+        "species": "Ghost",
+        "first_appearance": "Philosopher's Stone"
     }
 ]
