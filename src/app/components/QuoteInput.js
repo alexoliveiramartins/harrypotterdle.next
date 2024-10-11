@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import characterData from '../assets/characterData.json';
+import characterData from '../assets/quotes.json';
 import Image from "next/image";
+import CharacterGuess from "./CharacterGuess";
 
-export default function InputBox({ correctAnswer, guessesState, setGuesses, setIsPlaying }){
+export default function QuoteInput({ correctAnswer, guessesState, setGuesses, setIsPlaying }){
     const [inputValue, setInputValue] = useState('');
     const [filteredNames, setFilteredNames] = useState([]);
     const [characters, setCharacters] = useState(characterData);
@@ -11,7 +12,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
     // console.log("correct answer on inputbox: ", correctAnswer);
 
     useEffect(() => {
-        const savedGuessNames = JSON.parse(localStorage.getItem('guesses') || '[]');
+        const savedGuessNames = JSON.parse(localStorage.getItem('guessesQuote') || '[]');
     
         const remainingCharacters = characters.filter(character => 
             !savedGuessNames.includes(character.name)
@@ -29,10 +30,6 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
         // console.log(filteredNames);
         setSelectedIndex(0);
     }, [inputValue, characters]);
-
-    useEffect(() => {
-
-    }, [guessesState])
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -84,7 +81,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
                                     className={`${index === selectedIndex ? 'bg-slate-300' : 'hover:bg-slate-100'} p-2 flex flex-row items-center space-x-2 cursor-pointer`}
                                     onMouseEnter={() => setSelectedIndex(index)}
                                 >
-                                    <Image width={44} height={44} src={character.image} className=" rounded-md w-11 h-11" alt={character.name}></Image>
+                                    <Image width={44} height={44} src={character.image} alt={character.name} className=" rounded-md w-11 h-11"></Image>
                                     <div className="space-x-2">
                                         <span className="text-sm">{character.name}</span>
                                         {character.alias != "" && <span className="text-xs opacity-45">{`aka.: ${character.alias}`}</span>}
@@ -98,8 +95,8 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
                 width={32}
                 height={32}
                 src="svg/send.svg"
-                alt="send button"
                 className="w-8 h-8 hover:cursor-pointer"
+                alt="Send button"
                 onClick={() => {
                     if (inputValue !== '' && filteredNames.length > 0) {
                         handleClick(filteredNames[selectedIndex].name);

@@ -1,34 +1,40 @@
 [
-    {
-        "name": "Dudley Dursley",
-        "quote": "I don't think you're a waste of space."
-    },
-    {
-        "name": "Rubeus Hagrid",
-        "quote": "Yer a wizard Harry."
-    },
-    {
-        "name": "Hermione Jean Granger",
+	{
+		"name": "Albus Percival Wulfric Brian Dumbledore",
+		"image": "https://i.pinimg.com/564x/c5/d2/e0/c5d2e0b8ec09b912c11b6a32ed565acf.jpg",
+		"quote": "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends."
+	},
+	{
+		"name": "Dudley Dursley",
+		"quote": "I don't think you're a waste of space."
+	},
+	{
+		"name": "Harry James Potter",
+		"image": "https://i.pinimg.com/564x/0e/11/41/0e1141a31fb3d26ae4f717ed86bab4eb.jpg",
+		"quote": "I’ll be in my bedroom, making no noise and pretending I’m not there."
+	},
+	{
+		"name": "Hermione Jean Granger",
+		"image": "https://i.pinimg.com/564x/a2/88/cc/a288ccdac3dd55fe1ea1facec0cc49c1.jpg",
         "quote": "I hope you're pleased with yourselves. We could all have been killed — or worse, expelled."
-    },
-    {
-        "name": "Albus Percival Wulfric Brian Dumbledore",
-        "quote": "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends."
-    },
-    {
-        "name": "Harry James Potter",
-        "quote": "I’ll be in my bedroom, making no noise and pretending I’m not there."
-    },
-    {
-        "name": "Severus Snape",
-        "quote": "You dare use my own spells against me, Potter?"
-    },
-    {
-        "name": "Nearly Headless Nick",
-        "quote": "Once again, you show all the sensitivity of a blunt axe."
-    },
-    {
-        "name": "Molly Weasley",
-        "quote": "Not my daughter, you b*tch!"
-    }
+	},
+	{
+		"name": "Molly Weasley",
+		"image": "https://i.pinimg.com/564x/15/e1/c0/15e1c0301458d25d1073257a55a62c19.jpg",
+		"quote": "Not my daughter, you b*tch!"
+	},
+	{
+		"name": "Nearly Headless Nick",
+		"quote": "Once again, you show all the sensitivity of a blunt axe."
+	},
+	{
+		"name": "Rubeus Hagrid",
+		"image": "https://i.pinimg.com/564x/2f/38/d2/2f38d258c774e94680abaae8c33598b9.jpg",
+		"quote": "Yer a wizard Harry."
+	},
+	{
+		"name": "Severus Snape",
+		"image": "https://i.pinimg.com/564x/67/55/0e/67550e6be4636f1d8ce65092b4017c4a.jpg",
+		"quote": "You dare use my own spells against me, Potter?"
+	}
 ]
