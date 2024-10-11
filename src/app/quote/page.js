@@ -8,6 +8,7 @@ import MadeBy from '../components/Madeby';
 import QuoteInput from '../components/QuoteInput';
 import CharacterGuess from '../components/CharacterGuess';
 import QuoteCard from '../components/QuoteCard';
+import Answer from '../components/Answer';
 
 export default function Quote(){
     const [guesses, setGuesses] = useState([]);
@@ -52,7 +53,7 @@ export default function Quote(){
                     !savedGuessesLocal.includes(character.name)
                 );
                 setCharacters(remainingCharacters);
-                console.log("remaining characters: ", remainingCharacters);
+                // console.log("remaining characters: ", remainingCharacters);
             }
         console.log(correctAnswer);
     }
@@ -68,16 +69,21 @@ export default function Quote(){
         }
     }
     }, [guesses])
+
+    console.log("correct answer: ", correctAnswer);
+    {correctAnswer && console.log("correct answer.name: ", correctAnswer.name)};
    
     return (
     <div className="w-screen h-screen bg-cover overflow-y-auto py-9" style={{ backgroundImage: `url(${'images/Wallpaper.webp'})` }}>
         <div className="flex flex-col mx-auto items-center space-y-3 max-w-4xl px-4">
             <Logo/>
+            
+            {!isPlaying && <Answer correctAnswer={correctAnswer} />}
             {correctAnswer && <QuoteCard quote={correctAnswer.quote}></QuoteCard>}
-            {isPlaying && 
+            {isPlaying && correctAnswer && 
             <QuoteInput correctAnswer={correctAnswer} setIsPlaying={setIsPlaying} guessesState={guesses} setGuesses={setGuesses}></QuoteInput>}
             {guesses.map((character, index) => {
-                return <CharacterGuess key={index} character={character} correct={character.name === correctAnswer.name}></CharacterGuess>
+                return <CharacterGuess setIsPlaying={setIsPlaying} guessesState={guesses} key={index} character={character} correct={character.name === correctAnswer.name}></CharacterGuess>
             })}
 
             {/* <CharacterGuess title={"Harry Potter"} correct={true}></CharacterGuess> */}

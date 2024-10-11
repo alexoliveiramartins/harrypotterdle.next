@@ -46,11 +46,13 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
         );
         setCharacters(newCharacters);
         setInputValue('');
-        if(characterName === correctAnswer.name) setIsPlaying(false);
+        if(characterName === correctAnswer.name){
+            setIsPlaying(false);
+        }
         // console.log(newCharacters);
         // console.log("guesses: ", guessesState);
     }
-
+    
     const handleEnter = (e) => {
         if (e.key === 'Enter' && filteredNames.length > 0) {
             handleClick(filteredNames[selectedIndex].name);
@@ -62,7 +64,7 @@ export default function InputBox({ correctAnswer, guessesState, setGuesses, setI
             setSelectedIndex(prevIndex => prevIndex > 0 ? prevIndex - 1 : 0);
         }
     }
-
+    
     return (
         <div className="font-lora w-full max-w-96 rounded-md bg-gray-800 p-3">
             <div className="relative flex flex-row space-x-2 items-center">

@@ -25,22 +25,23 @@ export default function Classic(){
                 const todayString = today.getDate().toString();
                 
                 if (storedDate !== todayString) {
-                localStorage.removeItem('guesses');
-                localStorage.setItem('date', todayString);
-                setDate(todayString);
+                    localStorage.removeItem('guesses');
+                    localStorage.setItem('date', todayString);
+                    setDate(todayString);
                 } else {
-                setDate(storedDate);
+                    setDate(storedDate);
                 }
                 const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
                 const randomIndex = seed % characterData.length;
                 setCorrectAnswer(characterData[randomIndex]);
+
                 
                 if(localStorage.getItem('guesses') === null){
-                localStorage.setItem('guesses', '')
+                    localStorage.setItem('guesses', '')
                 }
                 else{
-                const savedGuessesLocal = JSON.parse(localStorage.getItem('guesses') || '[]');
-                const savedGuesses = savedGuessesLocal.map(name => 
+                    const savedGuessesLocal = JSON.parse(localStorage.getItem('guesses') || '[]');
+                    const savedGuesses = savedGuessesLocal.map(name => 
                     characters.find(character => character.name === name)
                 ).filter(Boolean);
                 
@@ -65,7 +66,8 @@ export default function Classic(){
     }
     }, [guesses])
 
-    console.log(correctAnswer);
+    // console.log(correctAnswer);
+    console.log("is playing? : ", isPlaying);
 
     return (
     <div className="w-screen h-screen bg-cover overflow-y-auto py-9" style={{ backgroundImage: `url(${'images/Wallpaper.webp'})` }}>

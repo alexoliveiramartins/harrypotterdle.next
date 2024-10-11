@@ -3,8 +3,8 @@ import { useEffect } from "react";
 
 export default function AttributeRow( {character, correctAnswer, setPlaying} ){
     
-    console.log("correct answer: ", correctAnswer);
-    console.log("character: ", character);
+    // console.log("correct answer: ", correctAnswer);
+    // console.log("character: ", character);
 
     const matchName = character.name === correctAnswer.name;
     const matchSpecies = character.species === correctAnswer.species;
@@ -16,7 +16,7 @@ export default function AttributeRow( {character, correctAnswer, setPlaying} ){
     const matchBlood = character.blood === correctAnswer.blood;
     const matchBoggart = character.boggart === correctAnswer.boggart;
     
-    console.log("match gender: ", matchGender);
+    // console.log("match gender: ", matchGender);
 
     useEffect(() => {
         if (matchAppearance && matchBlood && matchBoggart && matchBorn && 

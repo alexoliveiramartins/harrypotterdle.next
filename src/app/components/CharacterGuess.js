@@ -1,6 +1,11 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-export default function CharacterGuess({character, correct}){
+export default function CharacterGuess({character, correct, setIsPlaying}){
+    useEffect(() => {
+        if(correct) setIsPlaying(false);
+    }, [correct, setIsPlaying])
+    
     return(
         <div 
         className={`${correct ? 'bg-green-600' : 'bg-red-500'} flex flex-col p-2 space-y-2 items-center max-w-96 justify-center text-white rounded-sm w-full`}>
