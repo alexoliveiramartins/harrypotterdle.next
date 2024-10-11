@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Countdown from "./Countdown";
 
 export default function Answer( { correctAnswer } ){
     return(
@@ -8,6 +9,10 @@ export default function Answer( { correctAnswer } ){
             </div>
             <div className="items-center size-fit flex overflow-hidden rounded">
                 <Image className="w-72 rounded-lg aspect-square object-cover object-top" alt={correctAnswer.name} width={288} height={288} src={correctAnswer.image}/>
+            </div>
+            <div className="flex flex-col justify-center items-center">
+                <label>Next character in:</label>
+                <Countdown></Countdown>
             </div>
         </div>
     );

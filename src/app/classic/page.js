@@ -66,7 +66,7 @@ export default function Classic(){
     }
     }, [guesses])
 
-    // console.log(correctAnswer);
+    console.log(correctAnswer);
     // console.log("is playing? : ", isPlaying);
 
     return (
