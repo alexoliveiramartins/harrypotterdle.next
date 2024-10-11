@@ -11,7 +11,7 @@
 	{
 		"name": "Harry James Potter",
 		"image": "https://i.pinimg.com/564x/0e/11/41/0e1141a31fb3d26ae4f717ed86bab4eb.jpg",
-		"quote": "I’ll be in my bedroom, making no noise and pretending I’m not there."
+		"quote": "There’s no need to call me sir, Professor."
 	},
 	{
 		"name": "Hermione Jean Granger",
@@ -36,5 +36,95 @@
 		"name": "Severus Snape",
 		"image": "https://i.pinimg.com/564x/67/55/0e/67550e6be4636f1d8ce65092b4017c4a.jpg",
 		"quote": "You dare use my own spells against me, Potter?"
+	},
+	{
+		"name": "Neville Longbottom",
+		"image": "https://i.pinimg.com/736x/ac/74/e7/ac74e74b1d437a9eb48265905991c1ff.jpg",
+		"quote": "I'm Quite Proud To Be Their Son."	
+	},
+	{
+		"name": "Draco Malfoy",
+		"image": "https://i.pinimg.com/736x/67/94/1a/67941aee837fe88dc0fef6996794cdcd.jpg",
+		"quote": "My Father Will Hear About This."	
+	},
+	{
+		"name": "Ronald Bilius Weasley",
+		"image": "https://i.pinimg.com/564x/8e/ed/31/8eed31f1f92e347bc7c89bb889570344.jpg",
+		"quote": "Don’t let the Muggles get you down."	
+	},
+	{
+		"name": "Luna Lovegood",
+		"image": "https://i.pinimg.com/564x/2d/e4/3f/2de43fe10308ddd4300404c816a7cabd.jpg",
+		"quote": "Don't worry. You're just as sane as I am."	
+	},
+	{
+		"name": "Sirius Black",
+		"image": "https://i.pinimg.com/564x/fa/16/6e/fa166ee361323806e6f70bafe57b48ef.jpg",
+		"quote": "I want to commit the murder I was imprisoned for."	
+	},
+	{
+		"name": "Cornelius Fudge",
+		"image": "",
+		"quote": "Keep everybody in their seats, a boy has just been killed."	
+	},
+	{
+		"name": "Gilderoy Lockhart",
+		"image": "https://i.pinimg.com/564x/4e/9f/fe/4e9ffebfcf18444ca05599d2fcd242ec.jpg",
+		"quote": "Fame is a fickle friend, Harry. Celebrity is as celebrity does. Remember that."	
+	},
+	{
+		"name": "Minerva McGonagall",
+		"image": "https://i.pinimg.com/736x/4a/38/b3/4a38b32c8247c89b3082212f9ed9b009.jpg",
+		"quote": "I’ve always wanted to use that spell."	
+	},
+	{
+		"name": "Kingsley Shacklebolt",
+		"image": "https://i.pinimg.com/564x/e5/bf/c0/e5bfc045e5b82c42fb1ea22c394591d5.jpg",
+		"quote": "You know, Minister, I disagree with Dumbledore on many counts...but you cannot deny he's got style..."	
+	},
+	{
+		"name": "Poppy Pomfrey",
+		"image": "",
+		"quote": "Thoughts could leave deeper scars than almost anything else."	
+	},
+	{
+		"name": "Lord Voldemort",
+		"image": "https://i.pinimg.com/564x/c6/36/83/c6368320d8ad364c7c8a8bd05ad4cd35.jpg",
+		"quote": "Your devotion is nothing more than cowardice. You would not be here if you had anywhere else to go."	
+	},
+	{
+		"name": "Alastor Moody",
+		"image": "https://i.pinimg.com/564x/c4/7b/b8/c47bb8775d7cda2c462cb3a367ad7275.jpg",
+		"quote": "Don't put your wand there, boy! What if it ignited? Better wizards than you have lost buttocks, you know."	
+	},
+	{
+		"name": "Argus Filch",
+		"image": "https://i.pinimg.com/564x/23/07/e4/2307e42dfe7f4899465d06ef32b482b1.jpg",
+		"quote": "Well, take a good look lads. This night might well be the last you spend in this castle. Oh, dear, we are in trouble"	
+	},
+	{
+		"name": "Arthur Weasley",
+		"image": "https://i.pinimg.com/564x/1d/39/71/1d3971b1c614ccd36f0a244b525f4799.jpg",
+		"quote": "What is the exact function of a rubber duck?"	
+	},
+	{
+		"name": "Bellatrix Lestrange",
+		"image": "https://i.pinimg.com/736x/63/ee/f3/63eef3a57b0aa87d06136d74e0b3ff79.jpg",
+		"quote": "Neville Longbottom, Is It? How's Mum and Dad?"	
+	},
+	{
+		"name": "Dobby",
+		"image": "https://i.pinimg.com/564x/0e/d5/13/0ed51352eed41e4b49dfbffb24166ce6.jpg",
+		"quote": "Terrible Things Are About To Happen At Hogwarts. Harry Potter Must Not Stay Here, Now That History Is To Repeat Itself."	
+	},
+	{
+		"name": "Dolores Jane Umbridge",
+		"image": "https://i.pinimg.com/736x/01/c0/fb/01c0fb506b745e0fd64bcd19676fe6c7.jpg",
+		"quote": "You have been told that a certain Dark Wizard is at large once again. This is a lie. "	
+	},
+	{
+		"name": "Moaning Myrtle",
+		"image": "https://i.pinimg.com/564x/b0/e0/9c/b0e09c34bd944bd0e49406e41a131b9c.jpg",
+		"quote": " Here I am, minding my own business, and someone thinks it's funny to throw a book at me."	
 	}
 ]
