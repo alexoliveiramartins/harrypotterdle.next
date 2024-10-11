@@ -67,7 +67,7 @@ export default function Classic(){
     }, [guesses])
 
     // console.log(correctAnswer);
-    console.log("is playing? : ", isPlaying);
+    // console.log("is playing? : ", isPlaying);
 
     return (
     <div className="w-screen h-screen bg-cover overflow-y-auto py-9" style={{ backgroundImage: `url(${'images/Wallpaper.webp'})` }}>

@@ -55,7 +55,7 @@ export default function Quote(){
                 setCharacters(remainingCharacters);
                 // console.log("remaining characters: ", remainingCharacters);
             }
-        console.log(correctAnswer);
+        // console.log(correctAnswer);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -69,9 +69,6 @@ export default function Quote(){
         }
     }
     }, [guesses])
-
-    console.log("correct answer: ", correctAnswer);
-    {correctAnswer && console.log("correct answer.name: ", correctAnswer.name)};
    
     return (
     <div className="w-screen h-screen bg-cover overflow-y-auto py-9" style={{ backgroundImage: `url(${'images/Wallpaper.webp'})` }}>
