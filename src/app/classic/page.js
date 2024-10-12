@@ -1,14 +1,14 @@
 "use client";
 import Link from 'next/link';
-import InputBox from "../components/InputBox";
-import AttributeRow from "../components/AttributeRow";
-import characterData from "../assets/characterData";
+import InputBox from "../components/classicComponents/InputBox.js";
+import AttributeRow from "../components/classicComponents/AttributeRow.js";
+import characterData from "../assets/characterData.json";
 import { useEffect, useState } from 'react';
-import AttributeTitles from "../components/AttributeTitles";
-import Answer from "../components/Answer.js";
-import HowToPlay from "../components/HowToPlay";
-import Logo from '../components/Logo';
-import MadeBy from '../components/Madeby';
+import AttributeTitles from "../components/classicComponents/AttributeTitles.js";
+import Answer from "../components/misc/Answer.js";
+import HowToPlay from "../components/classicComponents/HowToPlay.js";
+import Logo from '../components/misc/Logo.js';
+import MadeBy from '../components/misc/Madeby.js';
 
 export default function Classic(){
     const [guesses, setGuesses] = useState([]);

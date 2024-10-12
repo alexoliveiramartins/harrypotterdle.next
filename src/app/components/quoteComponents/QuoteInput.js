@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import characterData from '../assets/quotes.json';
+import characterData from '../../assets/quotes.json';
 import Image from "next/image";
-import CharacterGuess from "./CharacterGuess";
+import CharacterGuess from "./CharacterGuess.js";
 
 export default function QuoteInput({ correctAnswer, guessesState, setGuesses, setIsPlaying }){
     const [inputValue, setInputValue] = useState('');

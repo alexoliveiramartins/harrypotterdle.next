@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import characterData from '../assets/characterData.json';
+import characterData from '../../assets/characterData.json';
 import Image from "next/image";
 
 export default function InputBox({ correctAnswer, guessesState, setGuesses, setIsPlaying }){

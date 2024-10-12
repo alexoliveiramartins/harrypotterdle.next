@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Menu from "./components/Menu.js";
-import Logo from "./components/Logo.js";
-import MadeBy from "./components/Madeby.js";
+import Menu from "./components/misc/Menu";
+import Logo from "./components/misc/Logo.js";
+import MadeBy from "./components/misc/Madeby.js";
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Countdown from "./Countdown";
+import Countdown from "./Countdown.js";
 
 export default function Answer( { correctAnswer } ){
     return(

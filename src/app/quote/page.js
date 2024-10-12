@@ -3,12 +3,12 @@
 import Link from 'next/link';
 import quoteData from "../assets/quotes.json";
 import { useEffect, useState } from 'react';
-import Logo from '../components/Logo';
-import MadeBy from '../components/Madeby';
-import QuoteInput from '../components/QuoteInput';
-import CharacterGuess from '../components/CharacterGuess';
-import QuoteCard from '../components/QuoteCard';
-import Answer from '../components/Answer';
+import Logo from '../components/misc/Logo.js';
+import MadeBy from '../components/misc/Madeby.js';
+import QuoteInput from '../components/quoteComponents/QuoteInput.js';
+import CharacterGuess from '../components/quoteComponents/CharacterGuess.js';
+import QuoteCard from '../components/quoteComponents/QuoteCard';
+import Answer from '../components/misc/Answer.js';
 
 export default function Quote(){
     const [guesses, setGuesses] = useState([]);
